@@ -175,3 +175,10 @@ model Contact {
 3. **Frontend State Management**
    - **Challenge**: Managing the state for the contact form and table dynamically while keeping the UI in sync with the data.
    - **Solution**: Leveraged React’s `useState` and `useEffect` hooks to manage data.
+
+## Screenshots
+**Contact Page**
+![image](https://github.com/user-attachments/assets/dae49a6f-911b-41e3-8b46-c823f41142ca)
+
+**Table Page**
+![image](https://github.com/user-attachments/assets/750ef722-27c8-4487-9bda-4700a8a77d8c)
