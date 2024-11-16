@@ -73,8 +73,8 @@ The Contact Management feature is a key part of a CRM system that allows users t
 
 1. Clone the repository:
    ```bash
-   git clone <repository-url>
-   cd backend
+   git clone https://github.com/Prayag-09/Contact-Management---Erino.git
+   cd server
    ```
 2. Install dependencies:
    ```bash
@@ -101,7 +101,7 @@ The Contact Management feature is a key part of a CRM system that allows users t
 
 1. Navigate to the frontend folder:
    ```bash
-   cd frontend
+   cd app
    ```
 2. Install dependencies:
    ```bash
@@ -118,55 +118,29 @@ The Contact Management feature is a key part of a CRM system that allows users t
 
 ## API Documentation
 
-### Base URL: `http://localhost:5000/api`
+### Base URL: `http://localhost:8000/api/contact/`
 
-| Method | Endpoint        | Description       | Request Body                                                     |
-| ------ | --------------- | ----------------- | ---------------------------------------------------------------- |
-| POST   | `/contacts`     | Add a new contact | `{ firstName, lastName, email, phoneNumber, company, jobTitle }` |
-| GET    | `/contacts`     | Get all contacts  | -                                                                |
-| PUT    | `/contacts/:id` | Update a contact  | `{ firstName, lastName, email, phoneNumber, company, jobTitle }` |
-| DELETE | `/contacts/:id` | Delete a contact  | -                                                                |
+| Method | Endpoint | Description       | Request Body                                                     |
+| ------ | -------- | ----------------- | ---------------------------------------------------------------- |
+| POST   | `/`      | Add a new contact | `{ firstName, lastName, email, phoneNumber, company, jobTitle }` |
+| GET    | `/`      | Get all contacts  | -                                                                |
+| PUT    | `/:id`   | Update a contact  | `{ firstName, lastName, email, phoneNumber, company, jobTitle }` |
+| DELETE | `/:id`   | Delete a contact  | -                                                                |
 
 ---
 
 ## Database Schema
 
-```sql
-CREATE TABLE contacts (
-    id SERIAL PRIMARY KEY,
-    first_name VARCHAR(255) NOT NULL,
-    last_name VARCHAR(255) NOT NULL,
-    email VARCHAR(255) UNIQUE NOT NULL,
-    phone_number VARCHAR(15),
-    company VARCHAR(255),
-    job_title VARCHAR(255),
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-);
+```prisma
+model Contact {
+  id          Int    @id @default(autoincrement())
+  username    String @unique
+  email       String @unique
+  phoneNumber String
+  company     String
+  jobTitle    String
+}
 ```
-
----
-
-## Challenges and Solutions
-
-1. **Handling Duplicate Entries**
-
-   - **Challenge**: Avoiding duplicate email addresses when creating new contacts.
-   - **Solution**: Added database-level constraints and validation in the backend.
-
-2. **Error Handling**
-
-   - **Challenge**: Providing meaningful error messages to the frontend.
-   - **Solution**: Added proper try-catch blocks in the backend and standardized response messages.
-
-3. **Pagination and Sorting**
-
-   - **Challenge**: Efficiently managing large datasets in the contact table.
-   - **Solution**: Used MUI Table’s built-in sorting and implemented backend pagination with query parameters.
-
-4. **Frontend State Management**
-   - **Challenge**: Managing the state for the contact form and table.
-   - **Solution**: Used `useState` and `useEffect` hooks to manage and refresh data dynamically.
 
 ---
 
@@ -186,18 +160,18 @@ CREATE TABLE contacts (
 
 ---
 
-## Future Improvements
+## Challenges and Solutions
 
-1. Add search functionality to the table.
-2. Include user authentication for secure access.
-3. Enhance the UI with advanced filtering options.
+1. **Learning MUI Components**
 
----
+   - **Challenge**: Not very familiar with MUI components, which required additional time to learn how to add styling and use components effectively.
+   - **Solution**: Studied the MUI documentation to understand how to use and customize components according to the project requirements.
 
-## License
+2. **Pagination and Sorting**
 
-This project is licensed under the [MIT License](LICENSE).
+   - **Challenge**: Efficiently managing large datasets in the contact table and implementing pagination and sorting.
+   - **Solution**: Utilized MUI Table’s built-in sorting functionality and implemented backend pagination with query parameters. This was my first experience with sorting and pagination, and I had to learn how to use these features effectively.
 
----
-
-Let me know if you need further refinements! 🚀
+3. **Frontend State Management**
+   - **Challenge**: Managing the state for the contact form and table dynamically while keeping the UI in sync with the data.
+   - **Solution**: Leveraged React’s `useState` and `useEffect` hooks to manage data.
