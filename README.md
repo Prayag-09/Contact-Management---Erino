@@ -117,38 +117,6 @@ The Contact Management feature is a key part of a CRM system that allows users t
 ---
 
 
-## Running the Application with Docker Compose
-
-To run the application using Docker, follow these steps:
-
-1. **Install Docker**  
-   Ensure Docker and Docker Compose are installed on your system. If not, download and install them from [Docker's official website](https://www.docker.com/).
-
-2. **Open a Terminal**  
-   Navigate to the project directory containing the `docker-compose.yml` file.
-
-3. **Run the Command**  
-   Execute the following command in your terminal to start the application:
-
-   ```bash
-   docker compose up -d
-   ```
-
-   This command will:
-   - Build and start all the services defined in the `docker-compose.yml` file.
-   - Run the containers in detached mode (`-d` flag).
-
-4. **Access the Application**  
-   Once the services are up, open your browser and navigate to the URL specified in the `docker-compose.yml` file.
-
-5. **Stopping the Containers**  
-   To stop the running containers, use the following command:
-
-   ```bash
-   docker compose down
-   ```
-
----
 ## API Documentation
 
 ### Base URL: `http://localhost:8000/api/contact/`
