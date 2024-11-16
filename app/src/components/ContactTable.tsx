@@ -81,8 +81,7 @@ const ContactTable: React.FC<{ onEdit: (contact: Contact) => void }> = ({
 		[contacts, order, orderBy]
 	);
 
-	// Handle page change
-	const handleChangePage = (event: unknown, newPage: number) => {
+	const handleChangePage = (_event: unknown, newPage: number) => {
 		setPage(newPage);
 	};
 
